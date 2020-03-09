@@ -1,0 +1,27 @@
+/* START - form  contact */
+.error::-webkit-input-placeholder {
+    font-weight: bold;
+    color: red;
+ }
+ 
+ .error:-moz-placeholder {
+    font-weight: bold;
+    color: red;  
+ }
+ 
+ .error::-moz-placeholder {
+    font-weight: bold;
+    color: red;  
+ }
+ 
+ .error:-ms-input-placeholder {  
+    font-weight: bold;
+    color: red;  
+ }
+ 
+ .error {
+   border: 2px solid red !important;
+  
+ }
+ /* END - form  contact */
+ 
