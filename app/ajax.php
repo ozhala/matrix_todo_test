@@ -29,3 +29,13 @@ if (isset($_POST['type_edit_task']))
         $DB->update($_POST);
     }
 }
+
+
+// Delete task
+if (isset($_POST['delete_task']))
+{
+        $DB = new DB(function () {
+            require_once 'database_config.php';
+        });
+        $DB->delete($_POST['id']);
+}

@@ -83,4 +83,13 @@ class DB {
         echo 1;
     }
 
+	public function delete($id)
+	{
+        $sql = "DELETE FROM tasks WHERE id = ?";
+        $query = $this->pdo->prepare($sql);
+        $query->execute([$id]);
+        echo 1;
+	}
+
+
 }

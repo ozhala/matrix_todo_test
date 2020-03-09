@@ -2,7 +2,7 @@
   sess_start('matrix_todo_test');
   include_once 'forms/add_task.php';
   include_once 'forms/edit_task.php';
-
+  include_once 'forms/delete_task.php';
 
   // pre(get_data());
 ?>
@@ -78,6 +78,10 @@
               <a data-id="<?= $val['id']; ?>" data-object='<?= to_json($val) ?>' class="btn btn-outline-primary btn-sm edit_task" data-toggle="modal" data-target="#edit_task_wrapper_model">
                 <i class="fas fa-pen"></i>
                 Edit
+              </a>
+              <a data-title="<?= $val['title']; ?>" data-id="<?= $val['id']; ?>" class="btn btn-outline-danger btn-sm delete-post-btn delete_task" data-toggle="modal" data-target="#exampleModal">
+                <i class="far fa-trash-alt"></i>
+                Delete
               </a>
             </td>
         </tr>

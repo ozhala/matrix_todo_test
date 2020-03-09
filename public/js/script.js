@@ -45,6 +45,41 @@ $(document).ready(function(){
         location.reload();
     });
     
+    // Delete task popup
+    $('.delete_task').click("on",function(){
+        $('#delete_task_title').html($(this).data('title'));
+        $('#delete_task_confirmation').attr('task_id',$(this).data('id'));
+    });
+
+    //START - Delete task AJAX
+    $('#delete_task_confirmation').click("on",function(){
+
+        var task_id     = $(this).attr('task_id');
+        var delete_task = $.trim($('#delete_task').val());
+
+        if(task_id)
+        {
+            $.ajax({
+                url: ajax_url,
+                type: "POST",
+                dataType: "json",
+                async: "false", 
+                data: { 	
+                    id:task_id,
+                    delete_task:delete_task
+                },
+                success: function(response){
+                    if(response == 1){	
+                        location.reload();
+                    }else{
+                        $('#delete_wrapper').html(message_problem);
+                    }
+                }
+                
+            });//END - AJAX	
+        }
+    });//END - Delete task AJAX
+
 
 
 
