@@ -15,3 +15,17 @@ if (isset($_POST['type_add_new_task']))
         $DB->create($_POST);
     }
 }
+
+
+// Update task
+if (isset($_POST['type_edit_task']))
+{
+
+    if (isset($_POST['edit_token']) && isset($_SESSION['edit_token']) && $_POST['edit_token'] == $_SESSION['edit_token'])
+    {
+        $DB = new DB(function () {
+            require_once 'database_config.php';
+        });
+        $DB->update($_POST);
+    }
+}

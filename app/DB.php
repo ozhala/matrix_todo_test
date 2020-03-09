@@ -61,8 +61,26 @@ class DB {
         echo 1;
 	}
 
- 
+    public function update($request)
+    {
+        $id = $request['edit_id'];
+        $title = $request['edit_title'];
+        $type = $request['edit_type'];
+        $article = $request['edit_article'];
+        $status = $request['edit_status'];
 
+        $sql = "UPDATE tasks SET
+            title = ?,
+            type = ?,
+            article = ?,
+            status = ?,
+            updated_at = NOW()
+            WHERE id = ?";
+            
+        $query = $this->pdo->prepare($sql);
+        $query->execute([$title, $type, $article, $status, $id]);
 
+        echo 1;
+    }
 
 }
